@@ -1,0 +1,30 @@
+.logo-button{
+ text-decoration: none;
+ color: transparent;
+ background-color: transparent;
+ border: none;
+ width: 91px;
+ height: 81px;
+ }
+
+ .logo{
+  width: 91px;
+  height: 81px;
+ }
+
+ .Header{
+  width: 89px;
+  height: 79px;
+  border: 2px solid transparent;
+  transition: all 0.3s;;
+ }
+
+ .Header:hover{
+  cursor: pointer;
+  border: 2px solid white;
+ }
+
+ .Header:active{
+  cursor: pointer;
+  border: 2px solid rgb(156, 156, 156)
+ }
