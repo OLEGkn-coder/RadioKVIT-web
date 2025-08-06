@@ -16,15 +16,18 @@
   width: 89px;
   height: 79px;
   border: 2px solid transparent;
-  transition: all 0.3s;;
+  transition: all 0.3s ease-in-out;
  }
 
  .Header:hover{
   cursor: pointer;
   border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgb(207, 202, 202, 0.1);
  }
 
  .Header:active{
   cursor: pointer;
-  border: 2px solid rgb(156, 156, 156)
+  border: 2px solid rgb(156, 156, 156);
+  background-color: rgb(207, 202, 202, 0.3);
  }

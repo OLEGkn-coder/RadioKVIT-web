@@ -8,13 +8,11 @@ import SongPage from './pages/SongPage';
 import DonatePage from './pages/DonatePage';
 import FinalPage from './pages/FinalPage';
 import ComponentPage from './pages/CommentPage';
-import Header from './components/Header';
 function App() {
 
   return (
   
     <Router>
-     <HomePage/>
       <Routes>
         <Route path='/' element = {<HomePage />}></Route>
         <Route path='/datepage' element = {<DatePage/>}></Route>

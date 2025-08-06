@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import logoRadio from '../assets/Logo White.png';
+import logoRadio from '../assets/Logo White.svg';
 import './Header.css';
 function Header(){
  return(
