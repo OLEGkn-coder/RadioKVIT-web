@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
-import './HomePage.css';
+import './Main.css';
 import vector1 from '../assets/Vector 1.svg';
 import vector2 from '../assets/Vector 2.svg';
 import vector3 from '../assets/Vector 3.svg';

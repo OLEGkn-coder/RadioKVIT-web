@@ -1,0 +1,266 @@
+@font-face {
+ font-family: 'MyFont';
+ src: url('../assets/fonts/BebasNeue-Regular.ttf') format('truetype');
+ font-weight: normal;
+ font-style: normal;
+
+}
+
+@font-face{
+ font-family: 'Montserrat';
+ src: url('../assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+ font-weight: normal;
+ font-style: normal;
+}
+
+.Main{
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ position: relative;
+ align-items: center;
+ width: 375px;
+ height: 812px;
+ background-color: #171717;
+}
+
+.Header{
+ position: absolute;
+ top: 30px;
+}
+
+.MainText{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ font-family: 'MyFont';
+ font-size: 64px;
+ width: 331px;
+ height: 154px;
+ position: absolute;
+ top:272px;
+ line-height: 73px;
+
+ 
+}
+
+.Text{
+margin: 0px;
+color: white;
+opacity: 0;
+transform: translateX(-50px);
+animation: slideIn 2s ease-out forwards;
+animation-delay: 0.7s;
+}
+
+@keyframes slideIn {
+ to{
+  opacity: 1;
+  transform: translateX(0);
+ }
+}
+
+@keyframes slideUp{
+ to{
+  opacity: 1;
+ }
+}
+.AnotherText{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ font-family: 'Montserrat';
+ font-size: 12px;
+ color: #FFFFFF;
+ margin: 0px;
+ width: 368px;
+ height: 40px;
+ position: absolute;
+ top: 416px;
+}
+
+.another1{
+ margin: 0px;
+ opacity: 0;
+ animation: slideUp 3s ease-out forwards;
+ animation-delay: 1.4s;
+ 
+}
+.another2{
+ margin: 5px 0px 0px 0px;
+  opacity: 0;
+ animation: slideUp 3s ease-out forwards;
+ animation-delay: 1.4s;
+}
+
+.vector2{
+ width: 41.47px;
+ height: 54.08px;
+ position: absolute;
+ top: 217.58px;
+ right: 48.26px;
+}
+
+.vector1{
+ width: 43.27px;
+ height: 45.07px;
+ position: absolute;
+ top: 254.93px;
+ right: 46.46px;
+}
+
+.vector3{
+ width: 139px;
+ height: 74px;
+ position: absolute;
+ top: 537.83px;
+ left: 5.62px;
+ z-index: 1;
+}
+
+.song-button{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 256px;
+ height: 56px;
+ background-color: transparent;
+ border: 1px solid #FFFFFF;
+ border-radius: 5px;
+ padding: 18px 24px 18px 24px;
+ color: #FFFFFF;
+ font-family: 'Montserrat';
+ cursor: pointer;
+ font-weight: 900;
+ font-size: 20.2px;
+ position: absolute;
+ top: 576px;
+ left: 60px;
+ transition: all 0.3s ease-in-out;
+ opacity: 0;
+ animation: slideUp 2s ease-out forwards;
+ animation-delay: 2s;
+}
+
+.song-button:hover{
+ background-color: rgb(207, 202, 202, 0.1);
+}
+
+.song-button:active{
+ background-color: rgb(207, 202, 202, 0.3);
+}
+
+.Info{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+ width: 256px;
+ height: 60px;
+ top: 652px;
+ left: 60px;
+ line-height: 20px;
+ opacity: 0;
+ animation: slideUp 2s ease-out forwards;
+ animation-delay: 2s;
+}
+.InfoText{
+ font-family: 'Montserrat';
+ color: #FFFFFF;
+ font-size: 12px;
+ margin: 0px;
+
+
+}
+.design{
+ display: flex;
+ align-items: start;
+ justify-content: start;
+ height: 60px;
+ margin-right: 3.5px;
+}
+
+/* DatePage*/
+
+.navbar{
+ position: absolute;
+ top: 745px;
+}
+
+.nextPage{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-family: 'Montserrat';
+ font-size: 16px;
+ position:absolute;
+ top: 670px;
+ left: 225px;
+ width: 125px;
+ height: 48px;
+ background-color: transparent;
+ color: #FFFFFF;
+ border-radius: 5px;
+ border: 2px solid #FFFFFF;
+ padding: 0px;
+}
+
+.vector-button{
+ width: 16.03px;
+ height: 19px;
+ margin-left: 10px;
+}
+
+.react-datepicker{
+ position: absolute;
+ top: 326px;
+}
+
+.One-svg{
+ position: absolute;
+ top: 108px;
+ left: 18px;
+ width: 59px;
+ height: 193px;
+}
+
+.Text-svg{
+ position: absolute;
+ top: 180px;
+ left: 24px;
+ width: 300px;
+ height: 117px;
+ z-index: 1;
+}
+
+.Info-date-page{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+ width: 327px;
+ height: 40px;
+ top: 652px;
+ left: 60px;
+ line-height: 20px;
+ opacity: 0;
+ animation: slideUp 2s ease-out forwards;
+ animation-delay: 2s;
+}
+.InfoText-date-page{
+ font-family: 'Montserrat';
+ color: #FFFFFF;
+ font-size: 12px;
+ margin: 0px;
+
+
+}
+.design-date-page{
+ display: flex;
+ align-items: start;
+ justify-content: start;
+ height: 40px;
+ margin-right: 3.5px;
+}

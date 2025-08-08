@@ -1,0 +1,115 @@
+@font-face{
+ font-family: 'Montserrat';
+ src: url('../assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+ font-weight: normal;
+ font-style: normal;
+}
+
+.date-disabled {
+ color: #960500 !important;
+ pointer-events: none;
+ user-select: none;
+ background-color: transparent !important;
+}
+
+.react-datepicker {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+  background-color: #403f3f;   
+  border: 2px solid #FFFFFF;
+  font-family:'Montserrat';
+  color: white;
+  width: 325px;
+  height: 300px;
+  
+}
+
+.react-datepicker__header {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ background-color: #292828;
+  border-bottom: 1px solid #777;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 0px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.react-datepicker__month{
+ text-align: center;
+ width: 285.94px;
+ margin: 0;
+ margin-left: 20px;
+
+}
+
+.react-datepicker__week{
+ display: flex;
+ margin: 0;
+ padding: 0;
+}
+.react-datepicker__current-month {
+  display: inline-block;
+  color: #FFFFFF;
+  
+}
+
+.react-datepicker__day--outside-month {
+  color: #960500 !important;
+  pointer-events: none;
+  user-select: none;
+  background-color: transparent !important;
+}
+
+.react-datepicker__day{
+ font-weight: bold;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ width: 100%;
+ height: 30px;
+ padding: 2px;
+ color:  #FFFFFF;
+ background-color: rgba(255, 255, 255, 0.2);
+ border-radius: 5px;
+ border: 2px solid transparent;
+ 
+}
+
+.react-datepicker__day:hover{
+ color: black;
+ background-color: rgba(255, 255, 255, 0.4);
+}
+
+.react-datepicker__day--today{
+ border: 2px solid #FFFFFF;
+}
+
+.react-datepicker__day--selected{
+ background-color: transparent !important;
+ border: 2px solid #FFFFFF;
+}
+.react-datepicker__month-container{
+ margin: 0;
+ padding: 0;
+ width: 325px;
+ height: 300px;
+}
+
+
+.react-datepicker__day-name{
+ width: 30px;
+ height: 30px;
+ margin-left: 8.5px;
+}
+
+.react-datepicker__day-name[aria-label = "Sunday"]{
+ margin-left: 2.2px;
+}
