@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Header from '../components/Header';
+import './Main.css';
+import NavBar from '../components/NavBar';
+import three from '../assets/3.svg';
+import TextForSong from '../assets/TextForSong.svg';
+import vector from '../assets/Vector.svg';
+import backpage from '../assets/backpage.svg';
+import { Link } from 'react-router-dom';
 function SongPage(){
  return(
-  <div>Тут буде назва пісні</div>
+  <div className = "Main">
+   <Header/>
+
+    <img src = { three } className = "number-three-svg"></img>
+    <img src = {TextForSong } className = "text-svg"></img>
+
+   <div className = "input-div">
+    <input className = "name-of-song" type='text' placeholder='Олег - Шугар...'></input>
+   </div>
+   <div className = "info-div">
+    <p className = "InfoText">
+      ** Просимо звернути увагу! За правилами нашої СО
+      ми НЕ вмикаємо пісні, що були написані росіянами
+      і пісні російською мовою, а також пісні 
+      з нецензурною лексикою.
+    </p>
+    <p className = "InfoText">
+     У разі недотримання правил ми не будемо вмикати
+     замовлений трек 
+     </p>
+   </div>
+   <div className = "nav-buttons">
+    <Link to = '/timepage' className = "backPage"><img src = { backpage } className = "vector-back-button"></img>НАЗАД</Link>
+    <Link to = '/donatepage' className = "nextPage">ДАЛІ<img src = { vector } className = "vector-next-button"></img></Link>
+   </div>
+   <NavBar/>
+  </div>
  )
 }
 

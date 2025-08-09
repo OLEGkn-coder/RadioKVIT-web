@@ -286,6 +286,14 @@ animation-delay: 0.7s;
  height: 110px;
 }
 
+.number-three-svg{
+  position: absolute;
+ top: 165px;
+ left: 24px;
+ width: 109px;
+ height: 124px;
+}
+
 .text-svg{
  position: absolute;
  top: 180px;
@@ -393,4 +401,40 @@ animation-delay: 0.7s;
  justify-content: start;
  height: 40px;
  margin-right: 3.5px;
+}
+
+/* SongPage */
+
+.name-of-song{
+font-family: 'Montserrat';
+font-size: 12px;
+width: 324px;
+height: 52px;
+padding-left: 20px;
+color: #FFFFFF;
+background-color: transparent;
+border: 2px solid #FFFFFF;
+border-radius: 5px;
+box-sizing: border-box;
+}
+
+.input-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 340px;
+  left: 24px;
+}
+
+.info-div{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 418px;
+  left: 24px;
+  width: 327px;
+  height: 140px;
+  color: #FFFFFF;
+  gap: 30px;
 }
