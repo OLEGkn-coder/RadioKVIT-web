@@ -14,8 +14,8 @@ function App() {
   
     <Router>
       <Routes>
-        <Route path='/' element = {<DatePage />}></Route>
-        <Route path='/datepage' element = {<HomePage/>}></Route>
+        <Route path='/' element = {<HomePage/>}></Route>
+        <Route path='/datepage' element = {<DatePage/>}></Route>
         <Route path='/timepage' element = {<TimePage/>}></Route>
         <Route path='/songpage' element = {<SongPage/>}></Route>
         <Route path='/donatepage' element = {<DonatePage/>}></Route>

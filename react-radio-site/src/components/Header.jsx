@@ -6,7 +6,7 @@ import './Header.css';
 function Header(){
  return(
   <header className = "Header">
-   <Link to = '/homepage' className = "logo-button">
+   <Link to = '/' className = "logo-button" >
     <img src = { logoRadio } alt = "RadioKVIT-logo" className = "logo"></img>
    </Link>
   </header>

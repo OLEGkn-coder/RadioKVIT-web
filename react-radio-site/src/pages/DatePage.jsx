@@ -8,14 +8,15 @@ import "react-datepicker/dist/react-datepicker.css";
 import NavBar from '../components/NavBar';
 import Text1 from '../assets/Text1.svg';
 import './CustomDatepicker.css';
+import { Link } from 'react-router-dom';
 function DatePage(){
  const [selectedDate, setSelectedDate] = useState(null);
  return(
   <div className = "Main">
    <Header/>
-   <div className = "Choosing-date-text">
-    <img src = { Text1 } className = "Text-svg"></img>
-    <img src = { one } className = "One-svg"></img>
+   <div className = "Choosing">
+    <img src = { Text1 } className = "text-svg"></img>
+    <img src = { one } className = "number-svg"></img>
    </div>
    <div className = "Choosing-date">
     <DatePicker className = "react-datepicker"
@@ -44,10 +45,10 @@ function DatePage(){
     
    </div>
   
-   <div className = "next-button">
-    <button className = "nextPage">
-     Далі<img src = { vector } className = "vector-button"></img>
-    </button>
+   <div className = "nav-buttons-first-page">
+    <Link to = '/timepage' className = "nextPage">
+     ДАЛІ<img src = { vector } className = "vector-button"></img>
+    </Link>
    </div>
    <NavBar className ="navbar"/>
   </div>

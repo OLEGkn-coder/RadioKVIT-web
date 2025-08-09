@@ -129,7 +129,6 @@ animation-delay: 0.7s;
  background-color: transparent;
  border: 1px solid #FFFFFF;
  border-radius: 5px;
- padding: 18px 24px 18px 24px;
  color: #FFFFFF;
  font-family: 'Montserrat';
  cursor: pointer;
@@ -142,10 +141,11 @@ animation-delay: 0.7s;
  opacity: 0;
  animation: slideUp 2s ease-out forwards;
  animation-delay: 2s;
+ text-decoration: none;
 }
 
 .song-button:hover{
- background-color: rgb(207, 202, 202, 0.1);
+ background-color: rgba(243, 147, 147, 0.1);
 }
 
 .song-button:active{
@@ -189,15 +189,35 @@ animation-delay: 0.7s;
  top: 745px;
 }
 
+
+.nav-buttons{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ position: absolute;
+ top: 670px;
+ width: 327px;
+ height: 48px;
+}
+
+.nav-buttons-first-page{
+  display: flex;
+ flex-direction: row;
+ justify-content: flex-end;
+ align-items: center;
+ position: absolute;
+ top: 670px;
+ width: 327px;
+ height: 48px;
+}
+
 .nextPage{
  display: flex;
  align-items: center;
  justify-content: center;
  font-family: 'Montserrat';
  font-size: 16px;
- position:absolute;
- top: 670px;
- left: 225px;
  width: 125px;
  height: 48px;
  background-color: transparent;
@@ -205,6 +225,39 @@ animation-delay: 0.7s;
  border-radius: 5px;
  border: 2px solid #FFFFFF;
  padding: 0px;
+ text-decoration: none;
+ box-sizing: border-box;
+}
+
+.backPage{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-family: 'Montserrat';
+ font-size: 16px;
+ width: 143px;
+ height: 48px;
+ background-color: transparent;
+ color: #FFFFFF;
+ border-radius: 5px;
+ border: 2px solid #FFFFFF;
+ padding: 0px;
+ text-decoration: none;
+ box-sizing: border-box;
+}
+
+
+
+.vector-next-button{
+ width: 16.03px;
+ height: 19px;
+ margin-left: 10px;
+}
+
+.vector-back-button{
+ width: 16.03px;
+ height: 19px;
+ margin-right: 10px;
 }
 
 .vector-button{
@@ -212,25 +265,32 @@ animation-delay: 0.7s;
  height: 19px;
  margin-left: 10px;
 }
-
 .react-datepicker{
  position: absolute;
  top: 326px;
 }
 
-.One-svg{
+.number-svg{
  position: absolute;
- top: 108px;
- left: 18px;
+ top: 150px;
+ left: 25px;
  width: 59px;
- height: 193px;
+ height: 110px;
 }
 
-.Text-svg{
+.number-two-svg{
+ position: absolute;
+ top: 144px;
+ left: 24px;
+ width: 104px;
+ height: 110px;
+}
+
+.text-svg{
  position: absolute;
  top: 180px;
- left: 24px;
- width: 300px;
+ left: 28px;
+ width: 305px;
  height: 117px;
  z-index: 1;
 }
@@ -258,6 +318,76 @@ animation-delay: 0.7s;
 
 }
 .design-date-page{
+ display: flex;
+ align-items: start;
+ justify-content: start;
+ height: 40px;
+ margin-right: 3.5px;
+}
+
+/* TimePage */
+
+.Button-time{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ position: absolute;
+ top: 340px;
+ left: 24px;
+ height: 204px;
+ width: 327px;
+}
+
+.Time-line-one{
+ display: flex;
+ flex-direction: column;
+ gap: 24px;
+ margin-right: 18px;
+}
+
+.Time-line-two{
+ display: flex;
+ flex-direction: column;
+ gap: 24px;
+
+}
+
+.time-button{
+ font-family: 'Montserrat';
+ font-size: 20px;
+ color:#FFFFFF;
+ background-color: transparent;
+ border: 2px solid #FFFFFF;
+ border-radius: 5px;
+ width: 154px;
+ height: 52px;
+ padding: 0px;
+}
+
+.Info-time-page{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+ width: 327px;
+ height: 40px;
+ top: 568px;
+ left: 27px;
+ line-height: 20px;
+ opacity: 0;
+ animation: slideUp 2s ease-out forwards;
+ animation-delay: 2s;
+}
+.InfoText-time-page{
+ font-family: 'Montserrat';
+ color: #FFFFFF;
+ font-size: 12px;
+ margin: 0px;
+
+
+}
+.design-time-page{
  display: flex;
  align-items: start;
  justify-content: start;
