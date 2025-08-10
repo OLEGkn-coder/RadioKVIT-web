@@ -8,6 +8,8 @@ import vector from '../assets/Vector.svg';
 import backpage from '../assets/backpage.svg';
 import { Link } from 'react-router-dom';
 function TimePage(){
+ const times = ['9:50-10:00','11:20-11:40','13:00-13:30','14:50-15:00','16:20-16:30','17:50-18:00'];
+ const [selectedTime, setSelectedTime] = useState(null);
  return(
   <div className = "Main">
    <Header/>
@@ -17,14 +19,14 @@ function TimePage(){
  
    <div className = "Button-time">
     <div className = "Time-line-one">
-    <button className = "time-button">9:50-10:00</button>
-    <button className = "time-button">11:20-11:40</button>
-    <button className = "time-button">13:00-13:30</button>
+    {times.slice(0, 3).map((time) => (
+   <button key = {time} className = {`time-button ${selectedTime === time ? 'active' : ''}`} onClick ={() => setSelectedTime(time)}>{time}</button>
+     ))}
     </div>
     <div className = "Time-line-two">
-    <button className = "time-button">14:50-15:00</button>
-    <button className = "time-button">16:20-16:30</button>
-    <button className = "time-button">17:50-18:00</button>
+     {times.slice(3, 6).map((time) => (
+    <button key = {time} className = {`time-button ${selectedTime === time ? 'active' : ''}`} onClick ={() => setSelectedTime(time)}>{time}</button> 
+    ))}
     </div>
    </div>
    <div className = "Info-time-page">

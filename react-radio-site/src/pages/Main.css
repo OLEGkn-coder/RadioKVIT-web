@@ -1,3 +1,15 @@
+html, body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: #171717;
+  overflow-x: hidden;
+}
+
 @font-face {
  font-family: 'MyFont';
  src: url('../assets/fonts/BebasNeue-Regular.ttf') format('truetype');
@@ -145,11 +157,13 @@ animation-delay: 0.7s;
 }
 
 .song-button:hover{
- background-color: rgba(243, 147, 147, 0.1);
+ background-color: #FFFFFF;
+ color: black;
 }
 
 .song-button:active{
- background-color: rgb(207, 202, 202, 0.3);
+ background-color: #960500;
+ color: #FFFFFF;
 }
 
 .Info{
@@ -227,6 +241,17 @@ animation-delay: 0.7s;
  padding: 0px;
  text-decoration: none;
  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.nextPage:hover{
+ background-color: rgb(255, 255, 255, 0.5);
+ color: #FFFFFF;
+}
+
+.nextPage:active{
+ background-color: #960500;
+ color: #FFFFFF;
 }
 
 .backPage{
@@ -244,7 +269,19 @@ animation-delay: 0.7s;
  padding: 0px;
  text-decoration: none;
  box-sizing: border-box;
+ transition: all 0.3s ease-in-out;
 }
+
+.backPage:hover{
+ background-color: rgb(255, 255, 255, 0.5);
+ color: #FFFFFF;
+}
+
+.backPage:active{
+ background-color: #960500;
+ color: #FFFFFF;
+}
+
 
 
 
@@ -371,8 +408,22 @@ animation-delay: 0.7s;
  width: 154px;
  height: 52px;
  padding: 0px;
+ transition: all 0.3s ease-in-out;
 }
 
+.time-button:hover{
+ background-color: rgb(255, 255, 255, 0.5);
+ color: #FFFFFF;
+}
+
+.time-button:active{
+ background-color: #960500;
+ color: #FFFFFF;
+}
+
+.time-button.active{
+  background-color: rgb(255, 255, 255, 0.5);
+}
 .Info-time-page{
  display: flex;
  align-items: center;
@@ -406,6 +457,9 @@ animation-delay: 0.7s;
 /* SongPage */
 
 .name-of-song{
+display: flex;
+align-items: center;
+justify-content: center;
 font-family: 'Montserrat';
 font-size: 12px;
 width: 324px;
@@ -437,4 +491,217 @@ box-sizing: border-box;
   height: 140px;
   color: #FFFFFF;
   gap: 30px;
+}
+
+/* DonatePage */
+
+.reference-button{
+  font-family: 'Montserrat';
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  color: black;
+  padding: 0px;
+}
+
+.reference-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 410px;
+  left: 24px;
+  width: 328px;
+  height: 44px;
+}
+
+.info-div-one{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 320px;
+  height: 60px;
+  position: absolute;
+  top: 328px;
+  left: 24px;
+  line-height: 20px;
+}
+
+.number-four-svg{
+  position: absolute;
+  top: 147px;
+  left: 24px;
+  width: 117px;
+  height: 144px;
+} 
+
+.input-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 323px;
+  height: 52px;
+  position: absolute;
+  top: 542px;
+  left: 24px;
+
+}
+
+.upload-img{
+display: none;
+}
+
+.info-div-two{
+  position: absolute;
+  top: 478px;
+  left: 24px;
+  width: 327px;
+  height: 40px;
+  line-height: 20px;
+}
+
+.upload-button{
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Montserrat';
+font-size: 12px;
+width: 323px;
+height: 52px;
+color: #FFFFFF;
+background-color: transparent;
+border: 2px solid #FFFFFF;
+border-radius: 5px;
+box-sizing: border-box;
+cursor: pointer;
+transition: all 0.3s ease-in-out;
+}
+
+.upload-button:hover{
+background-color: rgba(243, 147, 147, 0.1);
+}  
+
+/* CommentPage */
+
+.info-comment-div{
+  width: 327px;
+  height: 40px;
+  line-height: 20px;
+  position: absolute;
+  top: 328px;
+  left: 24px;
+}
+
+.input-comment-div{
+  width: 328px;
+  height: 109px;
+  position: absolute;
+  top: 392px;
+  left: 24px;
+}
+
+.input-comment{
+  font-family: 'Montserrat';
+  color: #FFFFFF;
+  font-size: 12px;
+  background-color: transparent;
+  border: 2px solid #FFFFFF;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-bottom: 70px;
+  padding-top: 16px;
+  width: 304px;
+  height: 21px;
+}
+
+.back{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+  border-radius: 5px;
+  background-color: transparent;
+  width: 72px;
+  height: 48px;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.next{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 171px;
+  height: 48px;
+  border: 2px solid #FFFFFF;;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-family: 'Montserrat'; 
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.number-five-svg{
+ position: absolute;
+ top: 152px;
+ left: 30px;
+ width: 111px;
+ height: 138px;
+}  
+
+/* FinalPage */
+
+.info-final-text{
+  position: absolute;
+  top: 374px;
+  left: 24px;
+  width: 327px;
+  height: 120px;
+  line-height: 20px;
+}
+
+.InfoText-final{
+  color:#FFFFFF;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.final-text-svg{
+  position: absolute;
+  top: 250px;
+  left: 24px;
+  width: 321px;
+  height: 92px;
+}
+
+.heart-svg{
+  position: absolute;
+  top: 185px;
+  left: 0px;
+}
+
+.link-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 602px;
+  left: 73px;
+  width: 230px;
+  height: 64px;
 }

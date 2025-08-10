@@ -32,5 +32,10 @@
 }
 
 .nav-button:hover {
-  background-color: #0056b3;
+  background-color: #FFFFFF;
+  color: black;
+}
+
+.nav-button.active{
+  background-color:  #960500;
 }
