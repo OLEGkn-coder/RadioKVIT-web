@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import DatePage from './pages/DatePage';
 import TimePage from './pages/TimePage';
@@ -12,7 +12,7 @@ function App() {
 
   return (
   
-    <Router>
+    <BrowserRouter basename = "/RadioKVIT-web">
       <Routes>
         <Route path='/' element = {<HomePage/>}></Route>
         <Route path='/datepage' element = {<DatePage/>}></Route>
@@ -22,7 +22,7 @@ function App() {
         <Route path='/commentpage' element = {<ComponentPage/>}></Route>
         <Route path = '/finalpage' element = {<FinalPage/>}></Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
