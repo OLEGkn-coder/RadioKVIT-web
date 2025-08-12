@@ -1,15 +1,20 @@
 .logo-button{
- text-decoration: none;
- color: transparent;
- background-color: transparent;
- border: none;
- width: 91px;
- height: 81px;
+all:unset;
+display: inline-block;
+align-items: center;
+justify-content: center;
+width: 91px;
+height: 81px;
+cursor: pointer;
  }
 
  .logo{
-  width: 91px;
-  height: 81px;
+  width: 100%;
+  height: auto;
+  display: block;
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision; 
+  image-rendering: optimizeQuality;
  }
 
  .Header{
@@ -17,6 +22,9 @@
   height: 79px;
   border: 2px solid transparent;
   transition: all 0.3s ease-in-out;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
  }
 
  .Header:hover{

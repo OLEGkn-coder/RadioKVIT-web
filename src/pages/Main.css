@@ -8,6 +8,13 @@ html, body{
   height: 100%;
   background-color: #171717;
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: block;
 }
 
 @font-face {
@@ -31,8 +38,10 @@ html, body{
  justify-content: flex-start;
  position: relative;
  align-items: center;
- width: 375px;
- height: 812px;
+ width: 100%;
+ max-width: 375px;
+ height: 100vh;
+ margin: 0 auto;
  background-color: #171717;
 }
 
@@ -335,9 +344,13 @@ animation-delay: 0.7s;
  position: absolute;
  top: 180px;
  left: 28px;
- width: 305px;
- height: 117px;
+ width: 100%;
+ max-width: 305px;
+ height: auto;
  z-index: 1;
+ shape-rendering: geometricPrecision;
+ text-rendering: geometricPrecision; 
+ image-rendering: optimizeQuality;
 }
 
 .Info-date-page{
