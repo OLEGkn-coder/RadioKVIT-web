@@ -12,7 +12,7 @@ html, body{
 }
 
 body{
-  overflow-x: hidden;
+  overflow-x: hidden;  
   overflow-y: hidden;
   display: block;
 }
@@ -209,7 +209,7 @@ animation-delay: 0.7s;
 
 .navbar{
  position: absolute;
- top: 630px;
+ top: 610px;
 }
 
 
@@ -219,7 +219,7 @@ animation-delay: 0.7s;
  justify-content: space-between;
  align-items: center;
  position: absolute;
- top: 568.5px;
+ top: 555px;
  width: 327px;
  height: 48px;
 }
@@ -230,7 +230,7 @@ animation-delay: 0.7s;
  justify-content: flex-end;
  align-items: center;
  position: absolute;
- top: 568.5px;
+ top: 555px;
  width: 327px;
  height: 48px;
 }
@@ -313,7 +313,7 @@ animation-delay: 0.7s;
 }
 .react-datepicker{
  position: absolute;
- top: 234px;
+ top: 225px;
 }
 
 .number-svg{
@@ -332,7 +332,7 @@ animation-delay: 0.7s;
 
 .number-three-svg{
   position: absolute;
- top: 85px;
+ top: 84px;
  left: 24px;
 
 }
@@ -340,14 +340,15 @@ animation-delay: 0.7s;
 .text-svg{
  position: absolute;
  top: 105px;
- left: 28px;
+ left: 45px;
  width: 100%;
- max-width: 305px;
+ max-width: 280px;
  height: auto;
  z-index: 1;
  shape-rendering: geometricPrecision;
  text-rendering: geometricPrecision; 
- image-rendering: optimizeQuality;
+ image-rendering: optimizeQuality
+ 
 }
 
 .Info-date-page{
@@ -606,7 +607,7 @@ background-color: rgba(243, 147, 147, 0.1);
   height: 40px;
   line-height: 20px;
   position: absolute;
-  top: 305px;
+  top: 236px;
   left: 24px;
 }
 
@@ -614,7 +615,7 @@ background-color: rgba(243, 147, 147, 0.1);
   width: 328px;
   height: 109px;
   position: absolute;
-  top: 370px;
+  top: 318px;
   left: 24px;
 }
 
@@ -666,7 +667,7 @@ background-color: rgba(243, 147, 147, 0.1);
 
 .number-five-svg{
  position: absolute;
- top: 95px;
+ top: 87px;
  left: 30px;
  width: 111px;
  height: 138px;
@@ -710,7 +711,7 @@ background-color: rgba(243, 147, 147, 0.1);
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 635px;
+  top: 600px;
   left: 73px;
   width: 230px;
   height: 64px;

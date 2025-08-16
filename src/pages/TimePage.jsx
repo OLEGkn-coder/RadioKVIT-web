@@ -7,9 +7,33 @@ import TextForTime from '../assets/TextForTime.svg';
 import vector from '../assets/Vector.svg';
 import backpage from '../assets/backpage.svg';
 import { Link } from 'react-router-dom';
+import { useBooking } from '../context/BookingContext';
 function TimePage(){
- const times = ['9:50-10:00','11:20-11:40','13:00-13:30','14:50-15:00','16:20-16:30','17:50-18:00'];
- const [selectedTime, setSelectedTime] = useState(null);
+const { bookingData, setBookingData} = useBooking();
+ const times = 
+ [
+  '9:50-10:00',
+  '11:20-11:40',
+  '13:00-13:30',
+  '14:50-15:00',
+  '16:20-16:30',
+  '17:50-18:00'
+];
+
+const [selectedTime, setSelectedTime] = useState(bookingData.time || null);
+const bookedSlots = {
+  "2025-08-20": ["9:50-10:00", "13:00-13:30"],
+  "2025-08-21": ["14:50-15:00"]
+};
+
+const bookedTimes = bookedSlots[bookingData.date] || [];
+
+const handleSelectTime = (time) => {
+  if(bookedTimes.includes(time)) return;
+  setSelectedTime(time);
+  setBookingData({...bookingData, time});
+}
+
  return(
   <div className = "Main">
    <Header/>
@@ -20,12 +44,26 @@ function TimePage(){
    <div className = "Button-time">
     <div className = "Time-line-one">
     {times.slice(0, 3).map((time) => (
-   <button key = {time} className = {`time-button ${selectedTime === time ? 'active' : ''}`} onClick ={() => setSelectedTime(time)}>{time}</button>
+   <button 
+      key = {time} 
+      className = {`time-button ${selectedTime === time ? 'active' : ''} 
+        ${bookedTimes.includes(time) ? "booked" : ""
+      }`} 
+      onClick ={() => handleSelectTime(time)}
+      disabled = {bookedTimes.includes(time)}
+      >{time}</button>
      ))}
     </div>
     <div className = "Time-line-two">
      {times.slice(3, 6).map((time) => (
-    <button key = {time} className = {`time-button ${selectedTime === time ? 'active' : ''}`} onClick ={() => setSelectedTime(time)}>{time}</button> 
+    <button 
+      key = {time} 
+      className = {`time-button ${selectedTime === time ? 'active' : ''} 
+        ${bookedTimes.includes(time) ? "booked" : ""
+      }`} 
+      onClick ={() => handleSelectTime(time)}
+      disabled = {bookedTimes.includes(time)}
+      >{time}</button>
     ))}
     </div>
    </div>

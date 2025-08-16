@@ -9,8 +9,19 @@ import NavBar from '../components/NavBar';
 import Text1 from '../assets/Text1.svg';
 import './CustomDatepicker.css';
 import { Link } from 'react-router-dom';
+import { useBooking } from '../context/BookingContext';
 function DatePage(){
- const [selectedDate, setSelectedDate] = useState(null);
+ const { bookingData, setBookingData } = useBooking();
+ const [selectedDate, setSelectedDate] = useState(
+  bookingData.date ? new Date(bookingData.date) : null
+ );
+
+ const handleDateChange = (date) => {
+  setBookingData(date);
+  setBookingData({ ...bookingData, date: date.toISOString().split("T")[0] });
+ };
+
+ const fullyBookedDates = ["2025-08-20"];
  return(
   <div className = "Main">
    <Header/>
@@ -26,19 +37,15 @@ function DatePage(){
     inline
     minDate = { new Date() }
 
-    dayClassName = { date => { 
+    dayClassName = { (date) => { 
     const today = new Date();
-    today.setHours(0, 0, 0, 0); 
-    
-    const currentDate = new Date(date);
-    currentDate.setHours(0, 0, 0, 0);
-    if(currentDate < today) {
-     return "date-disabled";
-    }
-    if(date.getDay() === 0){
-    return  "sunday";
-   }
-  
+    today.setHours(0, 0, 0, 0)
+
+    const d = date.toISOString().split("T")[0];
+
+    if(date < today) return "date-disabled";
+    if(fullyBookedDates.includes(d)) return "date-disabled";
+    if(date.getDay() === 0) return "sunday"
     return null;
    }}
     />

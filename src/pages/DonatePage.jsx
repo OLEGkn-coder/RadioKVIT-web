@@ -7,19 +7,26 @@ import TextForDonate from '../assets/TextForDonate.svg';
 import vector from '../assets/Vector.svg';
 import backpage from '../assets/backpage.svg';
 import { Link } from 'react-router-dom';
+import { useBooking } from '../context/BookingContext';
 function DonatePage(){
+  const { bookingData, setBookingData } = useBooking();
 const fileInputRef = useRef(null);
-const [fileName, setFileName] = useState('');
+const [fileName, setFileName] = useState(bookingData.receipt || '');
 
 const handleFileChange = (e) => {
- if(e.target.files.length > 0){
-  setFileName(e.target.files[0].name);
- }else{
-  setFileName('');
- }
+  if(e.target.files.length > 0){
+    const file = e.target.files[0];
+    const url = URL.createObjectURL(file); 
+    setFileName(file.name);
+    setBookingData({ ...bookingData, receipt: url }); 
+  } else {
+    setFileName('');
+    setBookingData({ ...bookingData, receipt: '' });
+  }
 };
 
-const handleUploadClick = () => {
+
+ const handleUploadClick = () => {
  fileInputRef.current.click();
 }
 

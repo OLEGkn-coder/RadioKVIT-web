@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import Header from '../components/Header';
 import './Main.css';
 import NavBar from '../components/NavBar';
@@ -7,7 +7,9 @@ import TextForSong from '../assets/TextForSong.svg';
 import vector from '../assets/Vector.svg';
 import backpage from '../assets/backpage.svg';
 import { Link } from 'react-router-dom';
+import { useBooking } from '../context/BookingContext';
 function SongPage(){
+  const { bookingData, setBookingData } = useBooking();
  return(
   <div className = "Main">
    <Header/>
@@ -16,7 +18,16 @@ function SongPage(){
     <img src = {TextForSong } className = "text-svg"></img>
 
    <div className = "input-div">
-    <input className = "name-of-song" type='text' placeholder='Олег - Шугар...'></input>
+    <input 
+      className = "name-of-song" 
+      type='text' 
+      placeholder='Олег - Шугар...'
+      value={bookingData.song}
+      onChange={(e) => 
+        setBookingData({ ...bookingData, song: e.target.value })
+      }
+      maxLength={100}>  
+    </input>
    </div>
    <div className = "info-div">
     <p className = "InfoText">
