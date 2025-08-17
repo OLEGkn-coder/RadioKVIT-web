@@ -17,6 +17,20 @@ body{
   display: block;
 }
 
+.date-fully-booked {
+  background-color: #ffcccc !important; 
+  pointer-events: none;
+}
+.time-button.booked {
+  background-color: #ffcccc;
+  color: #000000;
+  pointer-events: none;
+}
+.time-button.active {
+  border: 2px solid #960500;
+}
+
+
 @font-face {
  font-family: 'MyFont';
  src: url('../assets/fonts/BebasNeue-Regular.ttf') format('truetype');

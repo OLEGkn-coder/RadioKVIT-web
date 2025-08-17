@@ -15,6 +15,7 @@ cursor: pointer;
   shape-rendering: geometricPrecision;
   text-rendering: geometricPrecision; 
   image-rendering: optimizeQuality;
+  object-fit: contain;
  }
 
  .Header{

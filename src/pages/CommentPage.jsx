@@ -10,14 +10,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
 
 function ComponentPage(){
- const { bookingData, setBookingData} = useBooking();
+ const { bookingData, setBookingData, addBooking } = useBooking();
  const navigate = useNavigate();
   useEffect(() => {
     if (!window.emailjs) {
       const script = document.createElement('script');
       script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser/dist/email.min.js';
       script.onload = () => {
-        window.emailjs.init('XYkiRdWDDl3GG3Gkn'); // твій public key
+        window.emailjs.init('XYkiRdWDDl3GG3Gkn');
       };
       document.body.appendChild(script);
     } else {
@@ -25,34 +25,40 @@ function ComponentPage(){
     }
   }, []);
 
-  const handleConfirm = async () => {
-    if (!window.emailjs) {
-      alert('EmailJS ще не завантажився. Спробуйте пізніше.');
-      return;
-    }
+const handleConfirm = async () => {
+  if (!bookingData.date || !bookingData.time) {
+    alert("Оберіть дату та час!");
+    return;
+  }
 
-    const templateParams = {
-      song: bookingData.song || '',
-      date: bookingData.date || '',
-      time: bookingData.time || '',
-      comment: bookingData.comment || '',
-      receipt: bookingData.receipt || '',
+  if (!window.emailjs) {
+    alert('EmailJS ще не завантажився. Спробуйте пізніше.');
+    return;
+  }
 
-    };
-
-    try {
-      await window.emailjs.send(
-        'service_twcdbwr',     
-        'template_lj70xc9',   
-        templateParams
-      );
-      navigate('/finalpage');  
-    } catch (error) {
-      console.error('Помилка відправки повідомлення:', error);
-      alert('Сталася помилка при відправці. Спробуйте ще раз.');
-    }
+  const templateParams = {
+    song: bookingData.song || '',
+    date: bookingData.date || '',
+    time: bookingData.time || '',
+    comment: bookingData.comment || '',
+    receipt: bookingData.receipt || '',
   };
 
+  try {
+    await window.emailjs.send(
+      'service_twcdbwr',
+      'template_lj70xc9',
+      templateParams
+    );
+
+    addBooking(bookingData.date, bookingData.time);
+
+    navigate('/finalpage');
+  } catch (error) {
+    console.error('Помилка відправки повідомлення:', error);
+    alert('Сталася помилка при відправці. Спробуйте ще раз.');
+  }
+};
  return (
   <div className = "Main">
    <Header/>

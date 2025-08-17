@@ -1,65 +1,69 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
-import './Main.css';
-import one from '../assets/1.svg';
-import vector from '../assets/Vector.svg';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import NavBar from '../components/NavBar';
-import Text1 from '../assets/Text1.svg';
-import './CustomDatepicker.css';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 import { Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
-function DatePage(){
- const { bookingData, setBookingData } = useBooking();
- const [selectedDate, setSelectedDate] = useState(
-  bookingData.date ? new Date(bookingData.date) : null
- );
+import one from '../assets/1.svg';
+import Text1 from '../assets/Text1.svg';
+import './CustomDatepicker.css';
 
- const handleDateChange = (date) => {
-  setBookingData(date);
-  setBookingData({ ...bookingData, date: date.toISOString().split("T")[0] });
- };
+function DatePage() {
+   const { bookingData, setBookingData, bookedSlots } = useBooking();
+  const [selectedDate, setSelectedDate] = useState(bookingData.date ? new Date(bookingData.date) : null);
 
- const fullyBookedDates = ["2025-08-20"];
- return(
-  <div className = "Main">
-   <Header/>
-   <div className = "Choosing">
-    <img src = { Text1 } className = "text-svg"></img>
-    <img src = { one } className = "number-svg"></img>
-   </div>
-   <div className = "Choosing-date">
-    <DatePicker className = "react-datepicker"
-    selected={selectedDate}
-    onChange={(date) => setSelectedDate(date)}
-    dateFormat="dd.MM.yyyy"
-    inline
-    minDate = { new Date() }
+  const handleDateChange = (date) => {
+    const formatted = date.toISOString().split("T")[0];
+    setSelectedDate(date);
+    setBookingData({ ...bookingData, date: formatted });
+  };
 
-    dayClassName = { (date) => { 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0)
-
-    const d = date.toISOString().split("T")[0];
-
-    if(date < today) return "date-disabled";
-    if(fullyBookedDates.includes(d)) return "date-disabled";
-    if(date.getDay() === 0) return "sunday"
-    return null;
-   }}
-    />
-    
-   </div>
-  
-   <div className = "nav-buttons-first-page">
-    <Link to = '/timepage' className = "nextPage">
-     ДАЛІ<img src = { vector } className = "vector-button"></img>
-    </Link>
-   </div>
-   <NavBar className ="navbar"/>
-  </div>
- )
-}
  
+  const fullyBookedDates = Object.keys(bookedSlots).filter(date => {
+    const slots = bookedSlots[date];
+    return Object.values(slots).every(count => count >= 4);
+  });
+
+const handleDayClassName = (date) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); 
+  const formattedDate = date.toISOString().split("T")[0];
+
+
+  if (date < today) return "date-disabled";
+
+
+  if (fullyBookedDates.includes(formattedDate)) return "date-disabled";
+
+  return "";
+};
+
+
+
+  return (
+    <div className="Main">
+      <Header/>
+      <div className="Choosing">
+        <img src={Text1} className="text-svg"/>
+        <img src={one} className="number-svg"/>
+      </div>
+      <div className="Choosing-date">
+        <DatePicker
+          inline
+          selected={selectedDate}
+          onChange={handleDateChange}
+          dateFormat="dd.MM.yyyy"
+          minDate={new Date()}
+          dayClassName={ handleDayClassName }
+        />
+      </div>
+      <div className="nav-buttons-first-page">
+        <Link to="/timepage" className="nextPage">ДАЛІ</Link>
+      </div>
+      <NavBar/>
+    </div>
+  );
+}
+
 export default DatePage;
