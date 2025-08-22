@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import NavBar from '../components/NavBar';
 import five from '../assets/5.svg';
@@ -8,11 +8,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
 import { storage } from '../firebase'; 
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import emailjs from '@emailjs/browser';
 
 function CommentPage() {
   const { bookingData, setBookingData, addBooking } = useBooking();
   const navigate = useNavigate();
   const [uploading, setUploading] = useState(false);
+
+  // Ініціалізація emailjs з твоїм Public Key
+  emailjs.init('XYkiRdWDDl3GG3Gkn');
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
@@ -22,9 +26,7 @@ function CommentPage() {
     setUploading(true);
 
     try {
-  
       await uploadBytes(storageRef, file);
-
       const downloadURL = await getDownloadURL(storageRef);
 
       setBookingData({ ...bookingData, receipt: downloadURL });
@@ -57,7 +59,7 @@ function CommentPage() {
     };
 
     try {
-      await window.emailjs.send(
+      await emailjs.send(
         'service_twcdbwr',
         'template_lj70xc9',
         templateParams
@@ -93,13 +95,6 @@ function CommentPage() {
             setBookingData({ ...bookingData, comment: e.target.value })
           }
         />
-      </div>
-
-      <div className="upload-receipt">
-        <label>
-          Завантажте квитанцію:
-          <input type="file" onChange={handleFileChange} disabled={uploading} />
-        </label>
       </div>
 
       <div className="nav-buttons">
