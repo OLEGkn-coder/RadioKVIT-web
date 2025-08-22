@@ -27,57 +27,39 @@ function ComponentPage() {
   }, []);
 
   const handleConfirm = async () => {
-    if (!bookingData.date || !bookingData.time) {
-      alert("Оберіть дату та час перед підтвердженням!");
-      return;
-    }
+  if (!bookingData.date || !bookingData.time) {
+    alert("Оберіть дату та час перед підтвердженням!");
+    return;
+  }
 
-    // 1) Перевіряємо чи не переповнений слот
-    const currentCount = bookedSlots?.[bookingData.date]?.[bookingData.time]?.count || 0;
-    if (currentCount >= 4) {
-      alert("На жаль, цей час щойно заброньовано. Оберіть інший слот.");
-      return;
-    }
+  if (!bookingData.receipt) {
+    alert("Завантажте квитанцію перед підтвердженням!");
+    return;
+  }
 
-    // 2) (Опційно) відправляємо email — якщо EmailJS підвантажився
-    try {
-      if (window.emailjs) {
-        const templateParams = {
-          song: bookingData.song || '',
-          date: bookingData.date || '',
-          time: bookingData.time || '',
-          comment: bookingData.comment || '',
-          // ВАЖЛИВО: receipt — це локальний blob URL (непрацюючий за межами твоєї машини).
-          // Якщо хочеш робочу “Переглянути квитанцію” — треба заливати файл у хмару (наприклад Firebase Storage)
-          // і передавати публічний URL. Поки що просто кладемо як текст.
-          receipt: bookingData.receipt || '',
-        };
-        await window.emailjs.send('service_twcdbwr', 'template_lj70xc9', templateParams);
-      }
-    } catch (e) {
-      console.error('EmailJS помилка:', e);
-
-    }
-
-   
-    try {
-      const { ok, newCount } = await addBooking(
-        bookingData.date,
-        bookingData.time,
-        currentCount
-      );
-
-      if (!ok) {
-        alert("На жаль, поки ви підтверджували, цей слот заповнили. Оберіть інший час.");
-        return;
-      }
-
-      navigate('/finalpage');
-    } catch (err) {
-      console.error('Помилка підтвердження бронювання:', err);
-      alert('Сталася помилка при підтвердженні. Спробуйте ще раз.');
-    }
+  const templateParams = {
+    song: bookingData.song || '',
+    date: bookingData.date || '',
+    time: bookingData.time || '',
+    comment: bookingData.comment || '',
+    receipt: bookingData.receipt || '', // ⚡️ тут URL Firebase Storage
   };
+
+  try {
+    await window.emailjs.send(
+      'service_twcdbwr',
+      'template_lj70xc9',
+      templateParams
+    );
+
+    addBooking(bookingData.date, bookingData.time);
+    alert("Ваше бронювання підтверджено ✅");
+    navigate('/finalpage');
+  } catch (error) {
+    console.error('Помилка відправки повідомлення:', error);
+    alert('Сталася помилка при відправці. Спробуйте ще раз.');
+  }
+};
 
   return (
     <div className="Main">
