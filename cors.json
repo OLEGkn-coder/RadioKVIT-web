@@ -1,6 +1,6 @@
 [
   {
-    "origin": ["https://olegkn-coder.github.io"],
+    "origin": ["*"],
     "method": ["GET", "POST", "PUT", "DELETE"],
     "maxAgeSeconds": 3600,
     "responseHeader": ["Content-Type", "Authorization"]

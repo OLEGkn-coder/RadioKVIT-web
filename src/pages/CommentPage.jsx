@@ -42,7 +42,7 @@ function ComponentPage() {
     date: bookingData.date || '',
     time: bookingData.time || '',
     comment: bookingData.comment || '',
-    receipt: bookingData.receipt || '', // ⚡️ тут URL Firebase Storage
+    receipt: bookingData.receipt || '', 
   };
 
   try {

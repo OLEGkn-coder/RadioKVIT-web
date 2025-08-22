@@ -12,7 +12,7 @@ function App() {
 
   return (
   
-    <BrowserRouter basename = "/RadioKVIT-web">
+    <BrowserRouter>
       <Routes>
         <Route path='/' element = {<HomePage/>}></Route>
         <Route path='/datepage' element = {<DatePage/>}></Route>
