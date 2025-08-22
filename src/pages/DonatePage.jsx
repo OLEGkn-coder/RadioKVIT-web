@@ -93,7 +93,6 @@ function DonatePage() {
         >
           {loading ? "Завантаження..." : "Завантажити квитанцію"}
         </button>
-        {fileName && <p className="InfoText">Файл: {fileName}</p>}
       </div>
 
       <div className="nav-buttons">

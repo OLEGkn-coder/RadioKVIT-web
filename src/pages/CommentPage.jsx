@@ -15,7 +15,6 @@ function CommentPage() {
   const navigate = useNavigate();
   const [uploading, setUploading] = useState(false);
 
-  // Ініціалізація emailjs з твоїм Public Key
   emailjs.init('XYkiRdWDDl3GG3Gkn');
 
   const handleFileChange = async (e) => {
@@ -59,11 +58,12 @@ function CommentPage() {
     };
 
     try {
-      await emailjs.send(
-        'service_twcdbwr',
-        'template_lj70xc9',
-        templateParams
-      );
+   await emailjs.send(
+  'service_twcdbwr',
+  'template_lj70xc9',
+  templateParams,
+  'XYkiRdWDDl3GG3Gkn'
+);
 
       addBooking(bookingData.date, bookingData.time);
       alert("Ваше бронювання підтверджено ✅");
