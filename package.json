@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "firebase": "^12.1.0",
     "react": "^19.1.0",
     "react-datepicker": "^4.25.0",
