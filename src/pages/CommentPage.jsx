@@ -1,69 +1,80 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
-import './Main.css';
 import NavBar from '../components/NavBar';
 import five from '../assets/5.svg';
 import TextForComment from '../assets/TextForComment.svg';
 import backpage from '../assets/backpage.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
+import { storage } from '../firebase'; 
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-function ComponentPage() {
-  const { bookingData, setBookingData, bookedSlots, addBooking } = useBooking();
+function CommentPage() {
+  const { bookingData, setBookingData, addBooking } = useBooking();
   const navigate = useNavigate();
+  const [uploading, setUploading] = useState(false);
 
-  // EmailJS init
-  useEffect(() => {
-    if (!window.emailjs) {
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser/dist/email.min.js';
-      script.onload = () => {
-        window.emailjs.init('XYkiRdWDDl3GG3Gkn'); 
-      };
-      document.body.appendChild(script);
-    } else {
-      window.emailjs.init('XYkiRdWDDl3GG3Gkn');
+  const handleFileChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const storageRef = ref(storage, `receipts/${Date.now()}-${file.name}`);
+    setUploading(true);
+
+    try {
+  
+      await uploadBytes(storageRef, file);
+
+      const downloadURL = await getDownloadURL(storageRef);
+
+      setBookingData({ ...bookingData, receipt: downloadURL });
+      alert('Квитанцію завантажено ✅');
+    } catch (error) {
+      console.error('Помилка завантаження квитанції:', error);
+      alert('Не вдалося завантажити квитанцію. Спробуйте ще раз.');
+    } finally {
+      setUploading(false);
     }
-  }, []);
-
-  const handleConfirm = async () => {
-  if (!bookingData.date || !bookingData.time) {
-    alert("Оберіть дату та час перед підтвердженням!");
-    return;
-  }
-
-  if (!bookingData.receipt) {
-    alert("Завантажте квитанцію перед підтвердженням!");
-    return;
-  }
-
-  const templateParams = {
-    song: bookingData.song || '',
-    date: bookingData.date || '',
-    time: bookingData.time || '',
-    comment: bookingData.comment || '',
-    receipt: bookingData.receipt || '', 
   };
 
-  try {
-    await window.emailjs.send(
-      'service_twcdbwr',
-      'template_lj70xc9',
-      templateParams
-    );
+  const handleConfirm = async () => {
+    if (!bookingData.date || !bookingData.time) {
+      alert("Оберіть дату та час перед підтвердженням!");
+      return;
+    }
 
-    addBooking(bookingData.date, bookingData.time);
-    alert("Ваше бронювання підтверджено ✅");
-    navigate('/finalpage');
-  } catch (error) {
-    console.error('Помилка відправки повідомлення:', error);
-    alert('Сталася помилка при відправці. Спробуйте ще раз.');
-  }
-};
+    if (!bookingData.receipt) {
+      alert("Завантажте квитанцію перед підтвердженням!");
+      return;
+    }
+
+    const templateParams = {
+      song: bookingData.song || '',
+      date: bookingData.date || '',
+      time: bookingData.time || '',
+      comment: bookingData.comment || '',
+      receipt: bookingData.receipt || '',
+    };
+
+    try {
+      await window.emailjs.send(
+        'service_twcdbwr',
+        'template_lj70xc9',
+        templateParams
+      );
+
+      addBooking(bookingData.date, bookingData.time);
+      alert("Ваше бронювання підтверджено ✅");
+      navigate('/finalpage');
+    } catch (error) {
+      console.error('Помилка відправки повідомлення:', error);
+      alert('Сталася помилка при відправці. Спробуйте ще раз.');
+    }
+  };
 
   return (
     <div className="Main">
-      <Header/>
+      <Header />
       <img className="number-five-svg" src={five} alt="" />
       <img className="text-svg" src={TextForComment} alt="" />
 
@@ -84,14 +95,25 @@ function ComponentPage() {
         />
       </div>
 
-      <div className="nav-buttons">
-        <Link to="/donatepage" className="back"><img src={backpage} alt="" /></Link>
-        <button className="next" onClick={handleConfirm}>ПІДТВЕРДИТИ</button>
+      <div className="upload-receipt">
+        <label>
+          Завантажте квитанцію:
+          <input type="file" onChange={handleFileChange} disabled={uploading} />
+        </label>
       </div>
 
-      <NavBar/>
+      <div className="nav-buttons">
+        <Link to="/donatepage" className="back">
+          <img src={backpage} alt="" />
+        </Link>
+        <button className="next" onClick={handleConfirm} disabled={uploading}>
+          ПІДТВЕРДИТИ
+        </button>
+      </div>
+
+      <NavBar />
     </div>
   );
 }
 
-export default ComponentPage;
+export default CommentPage;
