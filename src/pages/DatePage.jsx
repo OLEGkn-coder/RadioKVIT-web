@@ -10,43 +10,49 @@ import Text1 from '../assets/Text1.svg';
 import './CustomDatepicker.css';
 
 function DatePage() {
-   const { bookingData, setBookingData, bookedSlots } = useBooking();
-  const [selectedDate, setSelectedDate] = useState(bookingData.date ? new Date(bookingData.date) : null);
+  const { bookingData, setBookingData, bookedSlots } = useBooking();
+  const [selectedDate, setSelectedDate] = useState(
+    bookingData.date ? new Date(bookingData.date) : null
+  );
+
+  const times = [
+    '9:50-10:00',
+    '11:20-11:40',
+    '13:00-13:30',
+    '14:50-15:00',
+    '16:20-16:30',
+    '17:50-18:00'
+  ];
 
   const handleDateChange = (date) => {
     const formatted = date.toISOString().split("T")[0];
     setSelectedDate(date);
-    setBookingData({ ...bookingData, date: formatted });
+    setBookingData({ ...bookingData, date: formatted, time: null });
   };
 
- 
-  const fullyBookedDates = Object.keys(bookedSlots).filter(date => {
-    const slots = bookedSlots[date];
-    return Object.values(slots).every(count => count >= 4);
+
+  const fullyBookedDates = Object.keys(bookedSlots).filter((date) => {
+    const slots = bookedSlots[date] || {};
+    return times.every((t) => (slots[t]?.count || 0) >= 4);
   });
 
-const handleDayClassName = (date) => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0); 
-  const formattedDate = date.toISOString().split("T")[0];
 
+  const handleDayClassName = (dateObj) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const formatted = dateObj.toISOString().split("T")[0];
 
-  if (date < today) return "date-disabled";
-
-
-  if (fullyBookedDates.includes(formattedDate)) return "date-disabled";
-
-  return "";
-};
-
-
+    if (dateObj < today) return "date-disabled";
+    if (fullyBookedDates.includes(formatted)) return "date-disabled";
+    return "";
+  };
 
   return (
     <div className="Main">
       <Header/>
       <div className="Choosing">
-        <img src={Text1} className="text-svg"/>
-        <img src={one} className="number-svg"/>
+        <img src={Text1} className="text-svg" alt="" />
+        <img src={one} className="number-svg" alt="" />
       </div>
       <div className="Choosing-date">
         <DatePicker
@@ -55,7 +61,7 @@ const handleDayClassName = (date) => {
           onChange={handleDateChange}
           dateFormat="dd.MM.yyyy"
           minDate={new Date()}
-          dayClassName={ handleDayClassName }
+          dayClassName={handleDayClassName}
         />
       </div>
       <div className="nav-buttons-first-page">
