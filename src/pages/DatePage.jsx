@@ -65,7 +65,19 @@ function DatePage() {
         />
       </div>
       <div className="nav-buttons-first-page">
-        <Link to="/timepage" className="nextPage">ДАЛІ</Link>
+        <Link
+  to={bookingData.date ? "/timepage" : "#"}
+  className={`nextPage ${!bookingData.date ? "disabled" : ""}`}
+  onClick={(e) => {
+    if (!bookingData.date) {
+      e.preventDefault();
+      alert("Будь ласка, оберіть дату!");
+    }
+  }}
+>
+  ДАЛІ
+</Link>
+
       </div>
       <NavBar/>
     </div>

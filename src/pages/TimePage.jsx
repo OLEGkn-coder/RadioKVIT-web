@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import './Main.css';
 import NavBar from '../components/NavBar';
@@ -8,7 +8,7 @@ import vector from '../assets/Vector.svg';
 import backpage from '../assets/backpage.svg';
 import { Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
-
+import TimeText from '../components/TimeText';
 function TimePage() {
   const { bookingData, setBookingData, bookedSlots } = useBooking();
 
@@ -23,8 +23,16 @@ function TimePage() {
 
   const [selectedTime, setSelectedTime] = useState(bookingData.time || null);
 
-  const daySlots = bookedSlots[bookingData.date] || {};
-  const isTimeBooked = (time) => (daySlots[time]?.count || 0) >= 4;
+  useEffect(() => {
+    setSelectedTime(bookingData.time || null);
+  }, [bookingData.time]);
+
+
+  const isTimeBooked = (time) => {
+    if (!bookingData.date) return false;
+    const slots = bookedSlots[bookingData.date] || {};
+    return (slots[time]?.count || 0) >= 4;
+  };
 
   const handleSelectTime = (time) => {
     if (isTimeBooked(time)) return;
@@ -32,21 +40,24 @@ function TimePage() {
     setBookingData({ ...bookingData, time });
   };
 
+
   return (
     <div className="Main">
-      <Header/>
+      <Header />
       <img src={two} className="number-two-svg" alt="" />
-      <img src={TextForTime} className="text-svg" alt="" />
+       <TimeText className="text-svg" style={{ width: '280px', height: 'auto' }} />
 
       <div className="Button-time">
         <div className="Time-line-one">
           {times.slice(0, 3).map((time) => (
             <button
               key={time}
-              className={`time-button ${selectedTime === time ? 'active' : ''} ${isTimeBooked(time) ? 'booked' : ''}`}
+              className={` ${isTimeBooked(time) ? 'booked' : ''} time-button ${selectedTime === time ? 'active' : ''}`}
               onClick={() => handleSelectTime(time)}
               disabled={isTimeBooked(time)}
+
             >
+        
               {time}
             </button>
           ))}
@@ -55,7 +66,7 @@ function TimePage() {
           {times.slice(3, 6).map((time) => (
             <button
               key={time}
-              className={`time-button ${selectedTime === time ? 'active' : ''} ${isTimeBooked(time) ? 'booked' : ''}`}
+              className={`${isTimeBooked(time) ? 'booked' : ''} time-button ${selectedTime === time ? 'active' : ''} `}
               onClick={() => handleSelectTime(time)}
               disabled={isTimeBooked(time)}
             >
@@ -66,11 +77,24 @@ function TimePage() {
       </div>
 
       <div className="nav-buttons">
-        <Link to="/datepage" className="backPage"><img src={backpage} alt="" />НАЗАД</Link>
-        <Link to="/songpage" className="nextPage">ДАЛІ <img src={vector} alt="" /></Link>
+        <Link to="/datepage" className="backPage">
+          <img src={backpage} alt="" />НАЗАД
+        </Link>
+        <Link
+          to={bookingData.time ? "/songpage" : "#"}
+          className={`nextPage ${!bookingData.time ? "disabled" : ""}`}
+          onClick={(e) => {
+            if (!bookingData.time) {
+              e.preventDefault();
+              alert("Будь ласка, оберіть час!");
+            }
+          }}
+        >
+          ДАЛІ <img src={vector} alt="" />
+        </Link>
       </div>
 
-      <NavBar/>
+      <NavBar />
     </div>
   );
 }

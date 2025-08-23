@@ -1,47 +1,61 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { db } from "../firebase";               
+import { db } from "../firebase";
 import { ref, onValue, runTransaction } from "firebase/database";
 
 const BookingContext = createContext();
 export const useBooking = () => useContext(BookingContext);
 
 export const BookingProvider = ({ children }) => {
+  const initialState = { date: null, time: null, song: "", receipt: null, comment: "" };
 
-  const [bookingData, setBookingData] = useState({
-    date: null,
-    time: null,
-    song: null,
-    receipt: null,
-    comment: "",
+  const [bookingData, setBookingData] = useState(() => {
+    const saved = localStorage.getItem("bookingData");
+    return saved ? JSON.parse(saved) : initialState;
   });
 
   const [bookedSlots, setBookedSlots] = useState({});
 
   useEffect(() => {
     const slotsRef = ref(db, "bookedSlots");
-    const unsubscribe = onValue(slotsRef, (snap) => {
-      setBookedSlots(snap.val() || {});
+    const unsubscribe = onValue(slotsRef, (snapshot) => {
+      const data = snapshot.val() || {};
+      setBookedSlots(data);
     });
     return () => unsubscribe();
   }, []);
-  const addBooking = async (date, time, currentCountHint = 0) => {
-    const slotRef = ref(db, `bookedSlots/${date}/${time}`);
-    const prevCount = currentCountHint;
 
-    const result = await runTransaction(slotRef, (slot) => {
-      const count = slot?.count || 0;
-      if (count >= 4) return slot;       
-      return { count: count + 1 };       
+  useEffect(() => {
+    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+  }, [bookingData]);
+
+  const addBooking = async (date, time) => {
+    const slotRef = ref(db, `bookedSlots/${date}/${time}`);
+    let success = false;
+
+    await runTransaction(slotRef, (currentData) => {
+      if (!currentData) {
+        success = true;
+        return { count: 1 };
+      }
+      if (currentData.count >= 4) {
+        success = false;
+        return currentData;
+      }
+      success = true;
+      return { count: currentData.count + 1 };
     });
 
-    const newCount = result.snapshot?.val()?.count || 0;
-    const ok = newCount > prevCount && newCount <= 4;
-    return { ok, newCount };
+    return success;
+  };
+
+  const resetBooking = () => {
+    setBookingData(initialState);
+    localStorage.removeItem("bookingData");
   };
 
   return (
     <BookingContext.Provider
-      value={{ bookingData, setBookingData, bookedSlots, addBooking }}
+      value={{ bookingData, setBookingData, bookedSlots, addBooking, resetBooking }}
     >
       {children}
     </BookingContext.Provider>

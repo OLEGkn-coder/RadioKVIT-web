@@ -22,13 +22,15 @@ body{
   pointer-events: none;
 }
 .time-button.booked {
-  background-color: #ffcccc;
-  color: #000000;
+  background-color: #ffcccc !important;
+  color: #000000 !important;
   pointer-events: none;
 }
-.time-button.active {
+
+.time-button.active:not(.booked) {
+  background-color: rgba(255, 255, 255, 0.5);
   border: 2px solid #960500;
-}
+}  
 
 
 @font-face {
@@ -53,7 +55,7 @@ body{
  position: relative;
  align-items: center;
  width: 100%;
- max-width: 375px;
+ max-width: 400px;
  height: 100vh;
  margin: 0 auto;
  background-color: #171717;
@@ -355,15 +357,12 @@ animation-delay: 0.7s;
  position: absolute;
  top: 105px;
  left: 45px;
- width: 100%;
- max-width: 280px;
+ width: 280px;     
  height: auto;
  z-index: 1;
- shape-rendering: geometricPrecision;
- text-rendering: geometricPrecision; 
- image-rendering: optimizeQuality
- 
+ vector-effect: non-scaling-stroke; 
 }
+
 
 .Info-date-page{
  display: flex;

@@ -99,9 +99,19 @@ function DonatePage() {
         <Link to="/songpage" className="backPage">
           <img src={backpage} className="vector-back-button" />НАЗАД
         </Link>
-        <Link to="/commentpage" className="nextPage">
-          ДАЛІ <img src={vector} className="vector-next-button" />
-        </Link>
+       <Link
+  to={bookingData.receipt ? "/commentpage" : "#"}
+  className={`nextPage ${!bookingData.receipt ? "disabled" : ""}`}
+  onClick={(e) => {
+    if (!bookingData.receipt) {
+      e.preventDefault();
+      alert("Будь ласка, завантажте квитанцію!");
+    }
+  }}
+>
+  ДАЛІ <img src={vector} className="vector-next-button" />
+</Link>
+
       </div>
 
       <NavBar />

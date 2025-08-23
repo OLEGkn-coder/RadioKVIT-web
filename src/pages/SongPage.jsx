@@ -8,6 +8,7 @@ import vector from '../assets/Vector.svg';
 import backpage from '../assets/backpage.svg';
 import { Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
+import SongText from '../components/SongText';
 function SongPage(){
   const { bookingData, setBookingData } = useBooking();
  return(
@@ -15,7 +16,7 @@ function SongPage(){
    <Header/>
 
     <img src = { three } className = "number-three-svg"></img>
-    <img src = {TextForSong } className = "text-svg"></img>
+    <SongText className="text-svg" style={{ width: '280px', height: 'auto' }} />
 
    <div className = "input-div">
     <input 
@@ -43,7 +44,19 @@ function SongPage(){
    </div>
    <div className = "nav-buttons">
     <Link to = '/timepage' className = "backPage"><img src = { backpage } className = "vector-back-button"></img>НАЗАД</Link>
-    <Link to = '/donatepage' className = "nextPage">ДАЛІ<img src = { vector } className = "vector-next-button"></img></Link>
+    <Link
+  to={bookingData.song.trim() ? "/donatepage" : "#"}
+  className={`nextPage ${!bookingData.song.trim() ? "disabled" : ""}`}
+  onClick={(e) => {
+    if (!bookingData.song.trim()) {
+      e.preventDefault();
+      alert("Будь ласка, введіть назву пісні!");
+    }
+  }}
+>
+  ДАЛІ<img src={vector} className="vector-next-button" />
+</Link>
+
    </div>
    <NavBar/>
   </div>

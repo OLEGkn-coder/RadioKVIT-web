@@ -1,42 +1,36 @@
-.logo-button{
-all:unset;
-display: inline-block;
-align-items: center;
-justify-content: center;
-width: 91px;
-height: 81px;
-cursor: pointer;
- }
-
- .logo{
-  width: 100%;
-  height: auto;
-  display: block;
-  shape-rendering: geometricPrecision;
-  text-rendering: geometricPrecision; 
-  image-rendering: optimizeQuality;
-  object-fit: contain;
- }
-
- .Header{
-  width: 89px;
-  height: 79px;
-  border: 2px solid transparent;
-  transition: all 0.3s ease-in-out;
-  display: inline-block;
+.Header {
+  width: 110px;
+  height: 90px;
+  display: flex;
   align-items: center;
   justify-content: center;
- }
-
- .Header:hover{
-  cursor: pointer;
-  border: 2px solid white;
+  border: 2px solid transparent;
   border-radius: 5px;
-  background-color: rgb(207, 202, 202, 0.1);
- }
-
- .Header:active{
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
+}
+
+.Header:hover {
+  border: 2px solid white;
+  background-color: rgba(207, 202, 202, 0.1);
+}
+
+.Header:active {
   border: 2px solid rgb(156, 156, 156);
-  background-color: rgb(207, 202, 202, 0.3);
- }
+  background-color: rgba(207, 202, 202, 0.3);
+}
+
+.logo-button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  display: block;
+}
