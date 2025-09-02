@@ -6,8 +6,11 @@ import TextForFinal from '../assets/TextForFinal.svg';
 import twitter from '../assets/Twitter.svg';
 import instagram from '../assets/Instagram.svg';
 import whatsapp from '../assets/WhatsApp.svg';
+import PageWrapper from './PageWrapper';
 function FinalPage(){
+
  return(
+  <PageWrapper baseWidth={375} baseHeight={665}>
   <div className = "Main">
    <Header/>
    <img src = { heart } className = "heart-svg"></img>
@@ -28,6 +31,9 @@ function FinalPage(){
     <p className = "InfoText-final">
      Вашe Radio KVIT.
     </p>
+    <p className = "InfoText-final">
+     **Щоб повернутися на головну сторінку натисність на логотип
+    </p>
    </div>
    <div className = "link-buttons">
     <a href = "https://www.instagram.com/radio.kvit?igsh=MWFnNDZ5NDhkcWU5dA%3D%3D&utm_source=qr" target='_blank'><img src = { instagram } className = "inst"></img></a>
@@ -35,6 +41,7 @@ function FinalPage(){
     <a href = "https://x.com/radiokvit?s=21" target='_blank'><img src = { twitter } className = "tw"></img></a>
    </div>
   </div>
+  </PageWrapper>
  )
 }
 

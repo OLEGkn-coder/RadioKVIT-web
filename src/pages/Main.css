@@ -51,14 +51,22 @@ body{
 .Main{
  display: flex;
  flex-direction: column;
- justify-content: flex-start;
  position: relative;
  align-items: center;
- width: 100%;
+ width: 100vw;
  max-width: 400px;
- height: 100vh;
+ height: 100dvh;
  margin: 0 auto;
  background-color: #171717;
+}
+
+.Stage{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 400px;
+  height: 700px;
+  transform-origin: top center;
 }
 
 .Header{
@@ -127,7 +135,7 @@ animation-delay: 0.7s;
 }
 .another2{
  margin: 5px 0px 0px 0px;
-  opacity: 0;
+ opacity: 0;
  animation: slideUp 3s ease-out forwards;
  animation-delay: 1.4s;
 }
@@ -157,6 +165,10 @@ animation-delay: 0.7s;
  z-index: 1;
 }
 
+.MainButton{
+display: flex;
+justify-content: center;
+}
 .song-button{
  display: flex;
  align-items: center;
@@ -173,7 +185,7 @@ animation-delay: 0.7s;
  font-size: 20.2px;
  position: absolute;
  top: 484px;
- left: 60px;
+
  transition: all 0.3s ease-in-out;
  opacity: 0;
  animation: slideUp 2s ease-out forwards;
@@ -199,7 +211,6 @@ animation-delay: 0.7s;
  width: 256px;
  height: 60px;
  top: 560px;
- left: 60px;
  line-height: 20px;
  opacity: 0;
  animation: slideUp 2s ease-out forwards;
@@ -210,9 +221,22 @@ animation-delay: 0.7s;
  color: #FFFFFF;
  font-size: 12px;
  margin: 0px;
-
-
+ animation-name: showsUp;
+ animation-timing-function: ease-in-out;
+ animation-duration: 2s;
+ animation-iteration-count: 1;
 }
+
+@keyframes showsUp{
+ 0%{
+  opacity: 0;
+ }
+
+ 100%{
+  opacity: 1;
+ }
+}
+
 .design{
  display: flex;
  align-items: start;
@@ -330,33 +354,43 @@ animation-delay: 0.7s;
 .react-datepicker{
  position: absolute;
  top: 225px;
+ animation-name: date;
+ animation-duration: 2s;
+ animation-fill-mode: forwards;
+}
+
+@keyframes date{
+from{
+  opacity: 0;
+}
+to{
+  opacity: 1;
+}
 }
 
 .number-svg{
  position: absolute;
  top: 87px;
- left: 25px;
+left: 37.5px;
 
 }
 
 .number-two-svg{
  position: absolute;
  top: 85px;
- left: 24px;
-
+ left: 37.5px;
 }
 
 .number-three-svg{
   position: absolute;
  top: 84px;
- left: 24px;
+ left: 37.5px;
 
 }
 
 .text-svg{
  position: absolute;
  top: 105px;
- left: 45px;
  width: 280px;     
  height: auto;
  z-index: 1;
@@ -396,6 +430,8 @@ animation-delay: 0.7s;
 
 /* TimePage */
 
+
+
 .Button-time{
  display: flex;
  flex-direction: row;
@@ -403,7 +439,6 @@ animation-delay: 0.7s;
  align-items: center;
  position: absolute;
  top: 248px;
- left: 24px;
  height: 204px;
  width: 327px;
 }
@@ -413,13 +448,23 @@ animation-delay: 0.7s;
  flex-direction: column;
  gap: 24px;
  margin-right: 18px;
+ animation-name: showone;
+ animation-duration: 2s;
+ animation-iteration-count: 1;
+ animation-fill-mode: forwards;
+ animation-timing-function: ease-in-out;
+ 
 }
 
 .Time-line-two{
  display: flex;
  flex-direction: column;
  gap: 24px;
-
+ animation-name: showtwo;
+ animation-timing-function: ease-in-out;
+ animation-duration: 2s;
+ animation-iteration-count: 1;
+ animation-fill-mode: forwards;
 }
 
 .time-button{
@@ -433,6 +478,43 @@ animation-delay: 0.7s;
  height: 52px;
  padding: 0px;
  transition: all 0.3s ease-in-out;
+
+}
+
+@keyframes showone{
+ from{
+  transform: translateX(-100%);
+  opacity: 0.5;
+ }
+ to{
+  transform: translateX(0);
+  opacity: 1;
+ }
+}
+
+@keyframes showtwo{
+  from{
+    transform: translateX(100%);
+    opacity: 0.5;
+  }
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes active{
+  0%{
+    scale: 1;
+  }
+
+  25%{
+    scale: 1.03;
+  }
+
+  100%{
+    scale: 1
+  }
 }
 
 .time-button:hover{
@@ -447,7 +529,12 @@ animation-delay: 0.7s;
 
 .time-button.active{
   background-color: rgb(255, 255, 255, 0.5);
+  animation-name: active;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
+
 .Info-time-page{
  display: flex;
  align-items: center;
@@ -485,6 +572,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 font-family: 'Montserrat';
+margin-left: 12.5px;
 font-size: 12px;
 width: 324px;
 height: 52px;
@@ -494,6 +582,22 @@ background-color: transparent;
 border: 2px solid #FFFFFF;
 border-radius: 5px;
 box-sizing: border-box;
+animation-name: slideRight;
+animation-timing-function: ease-in-out;
+animation-duration: 2s;
+animation-iteration-count: 1;
+animation-fill-mode: forwards;
+}
+
+@keyframes slideRight{
+from{
+  opacity: 0;
+  transform: translateX(-100%);
+}
+to{
+  opacity: 1;
+  transform: translateX(0);
+}
 }
 
 .input-div{
@@ -510,7 +614,6 @@ box-sizing: border-box;
   flex-direction: column;
   position: absolute;
   top: 326px;
-  left: 24px;
   width: 327px;
   height: 140px;
   color: #FFFFFF;
@@ -518,6 +621,7 @@ box-sizing: border-box;
 }
 
 /* DonatePage */
+
 
 .reference-button{
   font-family: 'Montserrat';
@@ -534,6 +638,11 @@ box-sizing: border-box;
   background-color: #FFFFFF;
   color: black;
   padding: 0px;
+  animation-name: slideRight;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .reference-div{
@@ -541,8 +650,7 @@ box-sizing: border-box;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 318px;
-  left: 24px;
+  top: 318px; 
   width: 328px;
   height: 44px;
 }
@@ -555,14 +663,13 @@ box-sizing: border-box;
   height: 60px;
   position: absolute;
   top: 236px;
-  left: 24px;
   line-height: 20px;
 }
 
 .number-four-svg{
   position: absolute;
   top: 85px;
-  left: 24px;
+ left: 37.5px;
   width: 117px;
   height: 144px;
 } 
@@ -575,8 +682,11 @@ box-sizing: border-box;
   height: 52px;
   position: absolute;
   top: 450px;
-  left: 24px;
-
+  animation-name: slideRight;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .upload-img{
@@ -586,10 +696,10 @@ display: none;
 .info-div-two{
   position: absolute;
   top: 386px;
-  left: 24px;
   width: 327px;
   height: 40px;
   line-height: 20px;
+  margin-left: 6.5px;
 }
 
 .upload-button{
@@ -621,17 +731,29 @@ background-color: rgba(243, 147, 147, 0.1);
   line-height: 20px;
   position: absolute;
   top: 236px;
-  left: 24px;
 }
 
 .input-comment-div{
   width: 328px;
   height: 109px;
-  position: absolute;
+  position: absolute; 
+  opacity: 0;
   top: 318px;
-  left: 24px;
+  animation-name: commentinput;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+
 }
 
+@keyframes commentinput {  
+to{
+    opacity: 1;
+  }
+  
+}
 .input-comment{
   font-family: 'Montserrat';
   color: #FFFFFF;
@@ -680,8 +802,8 @@ background-color: rgba(243, 147, 147, 0.1);
 
 .number-five-svg{
  position: absolute;
- top: 87px;
- left: 30px;
+ top: 87px; 
+ left: 37.5px;
  width: 111px;
  height: 138px;
 }  
@@ -691,7 +813,6 @@ background-color: rgba(243, 147, 147, 0.1);
 .info-final-text{
   position: absolute;
   top: 374px;
-  left: 24px;
   width: 327px;
   height: 120px;
   line-height: 20px;
@@ -702,12 +823,16 @@ background-color: rgba(243, 147, 147, 0.1);
   font-family: 'Montserrat';
   font-size: 12px;
   margin-top: 20px;
+  animation-name: showsUp; 
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
 }
 
 .final-text-svg{
   position: absolute;
   top: 250px;
-  left: 24px;
+  left: 36px;
   width: 321px;
   height: 92px;
 }
@@ -716,6 +841,11 @@ background-color: rgba(243, 147, 147, 0.1);
   position: absolute;
   top: 185px;
   left: 0px;
+  animation: scale;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: center center;
 }
 
 .link-buttons{
@@ -724,8 +854,21 @@ background-color: rgba(243, 147, 147, 0.1);
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 600px;
+  top: 595px;
   left: 73px;
   width: 230px;
   height: 64px;
+}
+
+@keyframes scale{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.05);
+    
+  }
+  100%{
+    transform: scale(1);
+  }
 }

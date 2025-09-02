@@ -7,6 +7,7 @@ import backpage from '../assets/backpage.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
 import emailjs from '@emailjs/browser';
+import PageWrapper from './PageWrapper';
 
 function CommentPage() {
   const { bookingData, setBookingData, addBooking, resetBooking } = useBooking();
@@ -59,6 +60,7 @@ function CommentPage() {
   };
 
   return (
+    <PageWrapper baseWidth={375} baseHeight={665}>
     <div className="Main">
       <Header />
       <img className="number-five-svg" src={five} alt="" />
@@ -92,6 +94,7 @@ function CommentPage() {
 
       <NavBar />
     </div>
+    </PageWrapper>
   );
 }
 

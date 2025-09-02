@@ -9,9 +9,11 @@ import backpage from '../assets/backpage.svg';
 import { Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
 import SongText from '../components/SongText';
+import PageWrapper from './PageWrapper';
 function SongPage(){
   const { bookingData, setBookingData } = useBooking();
  return(
+  <PageWrapper baseWidth={375} baseHeight={665}>
   <div className = "Main">
    <Header/>
 
@@ -60,6 +62,7 @@ function SongPage(){
    </div>
    <NavBar/>
   </div>
+  </PageWrapper>
  )
 }
 

@@ -8,8 +8,10 @@ import { useBooking } from '../context/BookingContext';
 import one from '../assets/1.svg';
 import Text1 from '../assets/Text1.svg';
 import './CustomDatepicker.css';
+import PageWrapper from './PageWrapper';
 
 function DatePage() {
+
   const { bookingData, setBookingData, bookedSlots } = useBooking();
   const [selectedDate, setSelectedDate] = useState(
     bookingData.date ? new Date(bookingData.date) : null
@@ -48,12 +50,11 @@ function DatePage() {
   };
 
   return (
+    <PageWrapper baseWidth={375} baseHeight={665}>
     <div className="Main">
       <Header/>
-      <div className="Choosing">
         <img src={Text1} className="text-svg" alt="" />
         <img src={one} className="number-svg" alt="" />
-      </div>
       <div className="Choosing-date">
         <DatePicker
           inline
@@ -81,6 +82,7 @@ function DatePage() {
       </div>
       <NavBar/>
     </div>
+    </PageWrapper>
   );
 }
 

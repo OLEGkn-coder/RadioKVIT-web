@@ -9,6 +9,7 @@ import backpage from '../assets/backpage.svg';
 import { Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
 import TimeText from '../components/TimeText';
+import PageWrapper from './PageWrapper';
 function TimePage() {
   const { bookingData, setBookingData, bookedSlots } = useBooking();
 
@@ -42,6 +43,7 @@ function TimePage() {
 
 
   return (
+    <PageWrapper baseWidth={375} baseHeight={665}>
     <div className="Main">
       <Header />
       <img src={two} className="number-two-svg" alt="" />
@@ -96,6 +98,7 @@ function TimePage() {
 
       <NavBar />
     </div>
+    </PageWrapper>
   );
 }
 

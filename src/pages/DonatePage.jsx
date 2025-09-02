@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import PageWrapper from './PageWrapper';
 
 function DonatePage() {
   const { bookingData, setBookingData } = useBooking();
@@ -47,11 +48,12 @@ function DonatePage() {
   const handleUploadClick = () => fileInputRef.current.click();
 
   return (
+    <PageWrapper baseWidth={375} baseHeight={665}>
     <div className="Main">
       <Header />
       <img src={four} className="number-four-svg" />
       <img src={TextForDonate} className="text-svg" />
-      
+    
       <div className="info-div-one">
         <p className="InfoText">
           Щоб замовити пісню, вам необхідно задонатити 
@@ -116,6 +118,7 @@ function DonatePage() {
 
       <NavBar />
     </div>
+    </PageWrapper>
   );
 }
 
