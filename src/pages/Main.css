@@ -839,3 +839,18 @@ background-color: rgba(243, 147, 147, 0.1);
     transform: scale(1);
   }
 }
+
+/*RotateBlock*/
+.rotate-warning {
+ font-family: 'Montserrat';
+ color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #171717;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+}

@@ -8,10 +8,11 @@ import SongPage from './pages/SongPage';
 import DonatePage from './pages/DonatePage';
 import FinalPage from './pages/FinalPage';
 import ComponentPage from './pages/CommentPage';
+import RotateBlocker from './pages/RotateBlock';
 function App() {
 
   return (
-  
+    <RotateBlocker>
     <BrowserRouter>
       <Routes>
         <Route path='/' element = {<HomePage/>}></Route>
@@ -23,6 +24,7 @@ function App() {
         <Route path = '/finalpage' element = {<FinalPage/>}></Route>
       </Routes>
     </BrowserRouter>
+    </RotateBlocker>
   );
 }
 
