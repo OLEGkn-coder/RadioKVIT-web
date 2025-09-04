@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import PageWrapper from "./PageWrapper";
 function HomePage(){
  return(
-<PageWrapper baseWidth={375} baseHeight={665}>
+<PageWrapper baseWidth={365} baseHeight={665}>
   <div className = "Main">
       <img src = { vector2 } alt = "vector-2" className = "vector2"></img>
       <img src = { vector1} alt = "vector-1" className  = "vector1"></img>

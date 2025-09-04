@@ -50,7 +50,7 @@ function DatePage() {
   };
 
   return (
-    <PageWrapper baseWidth={375} baseHeight={665}>
+    <PageWrapper baseWidth={365} baseHeight={665}>
     <div className="Main">
       <Header/>
         <img src={Text1} className="text-svg" alt="" />

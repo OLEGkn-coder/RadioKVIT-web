@@ -48,7 +48,7 @@ function DonatePage() {
   const handleUploadClick = () => fileInputRef.current.click();
 
   return (
-    <PageWrapper baseWidth={375} baseHeight={665}>
+    <PageWrapper baseWidth={365} baseHeight={665}>
     <div className="Main">
       <Header />
       <img src={four} className="number-four-svg" />

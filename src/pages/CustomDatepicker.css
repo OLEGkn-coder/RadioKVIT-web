@@ -20,7 +20,7 @@
   border: 2px solid #FFFFFF;
   font-family:'Montserrat';
   color: white;
-  width: 325px;
+  width: 330px;
   height: 315px;
   
 }
@@ -43,9 +43,9 @@
 
 .react-datepicker__month{
  text-align: center;
- width: 285.94px;
+ width: 320px;
  margin: 0;
- margin-left: 20px;
+ margin-left: 4.9px;
 
 }
 
@@ -99,7 +99,7 @@
 .react-datepicker__month-container{
  margin: 0;
  padding: 0;
- width: 325px;
+ width: 330px;
  height: 315px;
 }
 
@@ -107,9 +107,17 @@
 .react-datepicker__day-name{
  width: 30px;
  height: 30px;
- margin-left: 8.5px;
+ margin-left: 13px;
+
 }
 
-.react-datepicker__day-name[aria-label = "Sunday"]{
- margin-left: 2.2px;
+.react-datepicker__day-names{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 0;
+ margin-right: 11px;
+ padding: 0;
+ width: 355px;
+ height: 30px;
 }

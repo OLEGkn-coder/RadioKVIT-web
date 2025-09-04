@@ -43,7 +43,7 @@ function TimePage() {
 
 
   return (
-    <PageWrapper baseWidth={375} baseHeight={665}>
+    <PageWrapper baseWidth={365} baseHeight={665}>
     <div className="Main">
       <Header />
       <img src={two} className="number-two-svg" alt="" />
@@ -80,7 +80,7 @@ function TimePage() {
 
       <div className="nav-buttons">
         <Link to="/datepage" className="backPage">
-          <img src={backpage} alt="" />НАЗАД
+          <img src={backpage} alt="" className = "vector-back-button"/>НАЗАД
         </Link>
         <Link
           to={bookingData.time ? "/songpage" : "#"}

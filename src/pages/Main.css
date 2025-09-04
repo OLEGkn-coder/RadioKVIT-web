@@ -221,20 +221,6 @@ justify-content: center;
  color: #FFFFFF;
  font-size: 12px;
  margin: 0px;
- animation-name: showsUp;
- animation-timing-function: ease-in-out;
- animation-duration: 2s;
- animation-iteration-count: 1;
-}
-
-@keyframes showsUp{
- 0%{
-  opacity: 0;
- }
-
- 100%{
-  opacity: 1;
- }
 }
 
 .design{
@@ -260,7 +246,7 @@ justify-content: center;
  align-items: center;
  position: absolute;
  top: 555px;
- width: 327px;
+ width: 355px;
  height: 48px;
 }
 
@@ -271,7 +257,7 @@ justify-content: center;
  align-items: center;
  position: absolute;
  top: 555px;
- width: 327px;
+ width: 355px;
  height: 48px;
 }
 
@@ -289,8 +275,7 @@ justify-content: center;
  border: 2px solid #FFFFFF;
  padding: 0px;
  text-decoration: none;
- box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
+ box-sizing: border-box
 }
 
 .nextPage:hover{
@@ -318,7 +303,6 @@ justify-content: center;
  padding: 0px;
  text-decoration: none;
  box-sizing: border-box;
- transition: all 0.3s ease-in-out;
 }
 
 .backPage:hover{
@@ -354,43 +338,33 @@ justify-content: center;
 .react-datepicker{
  position: absolute;
  top: 225px;
- animation-name: date;
- animation-duration: 2s;
- animation-fill-mode: forwards;
 }
 
-@keyframes date{
-from{
-  opacity: 0;
-}
-to{
-  opacity: 1;
-}
-}
 
 .number-svg{
  position: absolute;
  top: 87px;
-left: 37.5px;
-
+ left: 22.5px;
 }
+
 
 .number-two-svg{
  position: absolute;
  top: 85px;
- left: 37.5px;
+ left: 22.5px;
 }
 
 .number-three-svg{
-  position: absolute;
+ position: absolute;
  top: 84px;
- left: 37.5px;
+ left: 22.5px;
 
 }
 
 .text-svg{
  position: absolute;
  top: 105px;
+ left: 36px;
  width: 280px;     
  height: auto;
  z-index: 1;
@@ -440,7 +414,7 @@ left: 37.5px;
  position: absolute;
  top: 248px;
  height: 204px;
- width: 327px;
+ width: 355px;
 }
 
 .Time-line-one{
@@ -449,7 +423,7 @@ left: 37.5px;
  gap: 24px;
  margin-right: 18px;
  animation-name: showone;
- animation-duration: 2s;
+ animation-duration: 1s;
  animation-iteration-count: 1;
  animation-fill-mode: forwards;
  animation-timing-function: ease-in-out;
@@ -462,7 +436,7 @@ left: 37.5px;
  gap: 24px;
  animation-name: showtwo;
  animation-timing-function: ease-in-out;
- animation-duration: 2s;
+ animation-duration: 1s;
  animation-iteration-count: 1;
  animation-fill-mode: forwards;
 }
@@ -474,7 +448,7 @@ left: 37.5px;
  background-color: transparent;
  border: 2px solid #FFFFFF;
  border-radius: 5px;
- width: 154px;
+ width: 168.5px;
  height: 52px;
  padding: 0px;
  transition: all 0.3s ease-in-out;
@@ -572,9 +546,8 @@ display: flex;
 align-items: center;
 justify-content: center;
 font-family: 'Montserrat';
-margin-left: 12.5px;
 font-size: 12px;
-width: 324px;
+width: 357px;
 height: 52px;
 padding-left: 20px;
 color: #FFFFFF;
@@ -584,7 +557,7 @@ border-radius: 5px;
 box-sizing: border-box;
 animation-name: slideRight;
 animation-timing-function: ease-in-out;
-animation-duration: 2s;
+animation-duration: 1s;
 animation-iteration-count: 1;
 animation-fill-mode: forwards;
 }
@@ -606,7 +579,7 @@ to{
   align-items: center;
   position: absolute;
   top: 248px;
-  left: 24px;
+  left: 23.5px;
 }
 
 .info-div{
@@ -614,7 +587,7 @@ to{
   flex-direction: column;
   position: absolute;
   top: 326px;
-  width: 327px;
+  width: 353.5px;
   height: 140px;
   color: #FFFFFF;
   gap: 30px;
@@ -640,7 +613,7 @@ to{
   padding: 0px;
   animation-name: slideRight;
   animation-timing-function: ease-in-out;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -650,8 +623,8 @@ to{
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 318px; 
-  width: 328px;
+  top: 318px;
+  width: 355px;
   height: 44px;
 }
 
@@ -659,7 +632,7 @@ to{
   display: flex;
   justify-content: center;
   align-content: center;
-  width: 320px;
+  width: 356px;
   height: 60px;
   position: absolute;
   top: 236px;
@@ -669,7 +642,7 @@ to{
 .number-four-svg{
   position: absolute;
   top: 85px;
- left: 37.5px;
+  left: 22.5px;
   width: 117px;
   height: 144px;
 } 
@@ -678,13 +651,13 @@ to{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 323px;
+  width: 355px;
   height: 52px;
   position: absolute;
   top: 450px;
   animation-name: slideRight;
   animation-timing-function: ease-in-out;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -696,10 +669,9 @@ display: none;
 .info-div-two{
   position: absolute;
   top: 386px;
-  width: 327px;
+  width: 354.5px;
   height: 40px;
   line-height: 20px;
-  margin-left: 6.5px;
 }
 
 .upload-button{
@@ -708,7 +680,7 @@ align-items: center;
 justify-content: center;
 font-family: 'Montserrat';
 font-size: 12px;
-width: 323px;
+width: 100%;
 height: 52px;
 color: #FFFFFF;
 background-color: transparent;
@@ -726,7 +698,7 @@ background-color: rgba(243, 147, 147, 0.1);
 /* CommentPage */
 
 .info-comment-div{
-  width: 327px;
+  width: 354.5px;
   height: 40px;
   line-height: 20px;
   position: absolute;
@@ -734,26 +706,12 @@ background-color: rgba(243, 147, 147, 0.1);
 }
 
 .input-comment-div{
-  width: 328px;
+  width: 355px;
   height: 109px;
   position: absolute; 
-  opacity: 0;
   top: 318px;
-  animation-name: commentinput;
-  animation-timing-function: ease-in-out;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-delay: 0.5s;
-
 }
 
-@keyframes commentinput {  
-to{
-    opacity: 1;
-  }
-  
-}
 .input-comment{
   font-family: 'Montserrat';
   color: #FFFFFF;
@@ -764,7 +722,7 @@ to{
   padding-left: 20px;
   padding-bottom: 70px;
   padding-top: 16px;
-  width: 304px;
+  width: 329px;
   height: 21px;
 }
 
@@ -803,7 +761,7 @@ to{
 .number-five-svg{
  position: absolute;
  top: 87px; 
- left: 37.5px;
+ left: 19px;
  width: 111px;
  height: 138px;
 }  
@@ -823,10 +781,19 @@ to{
   font-family: 'Montserrat';
   font-size: 12px;
   margin-top: 20px;
-  animation-name: showsUp; 
+  animation-name: shows; 
   animation-timing-function: ease-in-out;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes shows{
+  to{
+    opacity: 1;
+  }
 }
 
 .final-text-svg{

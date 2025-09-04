@@ -60,12 +60,11 @@ function CommentPage() {
   };
 
   return (
-    <PageWrapper baseWidth={375} baseHeight={665}>
+    <PageWrapper baseWidth={365} baseHeight={665}>
     <div className="Main">
       <Header />
       <img className="number-five-svg" src={five} alt="" />
       <img className="text-svg" src={TextForComment} alt="" />
-
       <div className="info-comment-div">
         <p className="InfoText">Якщо у вас є специфічні побажання з приводу</p>
         <p className="InfoText">чого завгодно, ви можете залишити їх тут:</p>
