@@ -702,8 +702,17 @@ background-color: rgba(243, 147, 147, 0.1);
   height: 40px;
   line-height: 20px;
   position: absolute;
-  top: 236px;
+  top: 454.5px;
 }
+
+.info-comment-div-two{
+  width: 354.5px;
+  height: 40px;
+  line-height: 20px;
+  position: absolute;
+  top: 250px;
+}
+
 
 .input-comment-div{
   width: 355px;

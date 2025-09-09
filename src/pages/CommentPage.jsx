@@ -29,6 +29,11 @@ function CommentPage() {
       return;
     }
 
+    if(!bookingData.comment){
+      alert("Введіть плац для підтвердження!");
+      return;
+    }
+
     const success = await addBooking(bookingData.date, bookingData.time);
 
     if (!success) {
@@ -66,8 +71,12 @@ function CommentPage() {
       <img className="number-five-svg" src={five} alt="" />
       <img className="text-svg" src={TextForComment} alt="" />
       <div className="info-comment-div">
-        <p className="InfoText">Якщо у вас є специфічні побажання з приводу</p>
-        <p className="InfoText">чого завгодно, ви можете залишити їх тут:</p>
+        <p className="InfoText">Також якщо у вас є специфічні побажання з приводу</p>
+        <p className="InfoText">чого завгодно, ви можете залишити їх</p>
+      </div>
+      <div className = "info-comment-div-two">
+        <p className="InfoText">Обов'язково вкажіть плац на якому хочете</p>
+        <p className="InfoText">почути пісню (перший або другий):</p>
       </div>
 
       <div className="input-comment-div">
