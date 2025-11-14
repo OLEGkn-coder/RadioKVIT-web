@@ -1,4 +1,3 @@
-import React, { useRef ,useState } from 'react';
 import Header from '../components/Header';
 import './Main.css';
 import heart from '../assets/Heart 2.svg';

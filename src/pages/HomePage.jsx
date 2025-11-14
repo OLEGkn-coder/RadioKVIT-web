@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from '../components/Header';
 import './Main.css';
 import vector1 from '../assets/Vector 1.svg';
