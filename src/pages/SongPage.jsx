@@ -1,4 +1,3 @@
-import React, { use, useState } from 'react';
 import Header from '../components/Header';
 import './Main.css';
 import NavBar from '../components/NavBar';
